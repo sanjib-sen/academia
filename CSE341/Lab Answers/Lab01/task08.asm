@@ -1,0 +1,54 @@
+.MODEL SMALL
+ 
+.STACK 100H
+
+.DATA 
+ONE DD 36DFH
+TWO DD 2H
+
+.CODE 
+MAIN PROC 
+
+;iniitialize DS
+
+MOV AX,@DATA 
+MOV DS,AX      
+
+;Code here
+
+;1 236DF*AF Causes error because 236DF is over 16 bit
+
+;MOV AX,236DFH
+;MOV BX,0AFH
+;MUL BX
+
+
+;2
+
+;MOV AX, 0F4D5H
+;MOV DX, 8A32H
+
+
+;3 CA92 * BAF9
+
+MOV AX, 0CA92H 
+MOV BX, 0BAF9H
+DIV AX
+
+;4 C2A2 * ABCD / BED
+
+MOV AX, 0ABCDH
+MOV BX, 0BEDH
+DIV BX  
+
+MOV BX, AX
+MOV AX, 0C2A2H 
+MUL BX
+
+;exit to DOS 
+               
+MOV AX,4C00H
+INT 21H 
+
+MAIN ENDP
+    END MAIN 

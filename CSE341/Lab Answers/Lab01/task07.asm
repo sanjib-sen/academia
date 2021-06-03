@@ -1,0 +1,48 @@
+.MODEL SMALL
+ 
+.STACK 100H
+
+.DATA 
+
+.CODE 
+MAIN PROC 
+
+;iniitialize DS
+
+MOV AX,@DATA 
+MOV DS,AX      
+
+;Code here
+
+;1 X * Y
+
+X DB, 10H
+Y DB, 5H
+Z DB, 2H
+
+MOV AL,X
+MOV BL,Y
+MUL BL
+
+
+;2 X / Y
+
+MOV AX,X
+MOV BX,Y
+DIV BX
+
+;3 X * Y / Z
+
+MOV AX,X
+MOV BX,Y
+MUL BX
+MOV CX,Z
+DIV CX 
+
+;exit to DOS 
+               
+MOV AX,4C00H
+INT 21H 
+
+MAIN ENDP
+    END MAIN 

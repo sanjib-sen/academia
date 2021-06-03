@@ -1,0 +1,69 @@
+.MODEL SMALL
+ 
+.STACK 100H
+
+.DATA 
+prompt DW "THE SUM OF $"
+prompt2 DW " AND $"
+prompt3 DW " IS $"
+num DB 0H
+
+.CODE 
+MAIN PROC 
+
+;iniitialize DS
+
+MOV AX,@DATA 
+MOV DS,AX      
+
+;Code here
+
+MOV AL, '?'
+LEA DL, AL
+MOV AH, 2
+INT 21H
+
+MOV AH,1
+INT 21H
+MOV BL,AL
+MOV AH,1
+INT 21H
+MOV BH,AL 
+
+LEA DX, prompt
+MOV AH, 9
+INT 21H
+
+MOV CL, BL
+LEA DL, CL
+MOV AH, 2
+INT 21H
+ 
+LEA DX, prompt2
+MOV AH, 9
+INT 21H
+
+MOV CL, BH
+LEA DL, CL
+MOV AH, 2
+INT 21H
+
+LEA DX, prompt3
+MOV AH, 9
+INT 21H
+
+
+ADD BL,BH
+SUB BL, 30H
+MOV CL, BL
+LEA DL, CL
+MOV AH, 2
+INT 21H
+
+;exit to DOS 
+               
+MOV AX,4C00H
+INT 21H 
+
+MAIN ENDP
+    END MAIN 

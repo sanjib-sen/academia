@@ -1,0 +1,36 @@
+                                                     .MODEL SMALL
+ .STACK 100H
+
+.DATA 
+prompt DB "Please insert a character.$"
+.CODE 
+MAIN PROC 
+
+;iniitialize DS
+
+MOV AX,@DATA 
+MOV DS,AX      
+
+;Code here
+
+MOV AL, 80H
+MOV BL, 80H
+ADD AL, BL
+
+
+;The Status of Different Status Flags after Execution:
+
+;Carry Flag = 1
+;Zero Flag = 1
+;Sign Flag = 0
+;Overflow Flag = 1
+;Parity Flag = 1
+;Auxiliary Flag = 0
+
+;exit to DOS 
+               
+MOV AX,4C00H
+INT 21H 
+
+MAIN ENDP
+    END MAIN 

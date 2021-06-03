@@ -1,0 +1,266 @@
+; Name: Sanjib Kumar Sen
+; ID: 19301101
+
+.MODEL SMALL
+ 
+.STACK 100H
+
+.DATA 
+
+A DW 12H
+B DW 26H
+C DW 36H
+
+sX DW 10H ; for 16 bit X
+tX DB 10H ; for 8 bit X
+Y DW 5H   ; for 16 bit Y
+tY DB 5H  ; for 8 bit Y
+Z DW 2H   ; for 16 bit Z
+tZ DB 2H  ; for 8 bit Z
+
+.CODE 
+MAIN PROC 
+
+;iniitialize DS
+
+MOV AX,@DATA 
+MOV DS,AX      
+
+;Code here
+
+; TASK 1: Take input in the register AX, and then move it to BX using the MOV instruction.
+
+MOV AX,13H
+MOV BX,AX
+
+
+; TASK 2: Swap two numbers, using a maximum of 3 registers.
+
+MOV AL,13H
+MOV AH,26H
+MOV BL,AL
+MOV AL,AH
+MOV AH,BL
+
+; TASK 3: Add two numbers using two registers.
+
+MOV AL,37H
+MOV AH,32H
+ADD AL,AH
+
+; TASK 04: Subtract two numbers using two registers.Do you always get the correct answer? What
+;happens when you subtract larger number from the smaller one?
+
+; Let's Substract a Smaller Number from a Large Number.
+
+MOV AX,9999H
+MOV BX,33H
+SUB AX,BX
+
+; So, AL 66, AH 99. Works Fine.
+; Let's try the opposite.
+
+MOV AX,33H
+MOV BX,9999H
+SUB AX,BX
+
+; So, AX Becomes 669A Which is very different than what should
+;   We get after substracting 33H from 9999H
+;   Maybe it's because the AX Register doesn't have enough room/
+;   bits for allocating the 2's prime negative number which is
+;   FFFF FFFF FFFF 669A
+
+
+
+; TASK 05: Swap two numbers using ADD/SUB instructions only.
+
+; Clearing The Registers:
+SUB AX, AX
+SUB DX, DX
+
+; Adding Numbers:
+ADD AH, 33H
+ADD AL, 23H
+
+; Swapping Numbers:
+ADD AL, AH
+ADD DL, AL
+SUB DL, AH
+SUB AL, DL
+ADD DH, AL
+SUB DH, DL
+SUB AH, DH
+
+
+
+;TASK 06: 
+;1  A = B - A
+MOV AX,A
+MOV BX,B
+SUB BX,AX  
+MOV A,BX
+
+;2  A = -(A + 1) ;  (Currently A=14)
+INC A
+NEG A
+
+;3  C = A + (B + 1); use inc
+MOV A,13H ;Declaring Positive A for Better understanding
+INC B     ;B becomes 27 from 26
+MOV AX,B
+ADD AX,A
+MOV C,AX
+
+;4  A = B – (A – 1); use dec
+DEC A
+MOV AX,B
+SUB AX,A
+MOV A,AX
+
+
+
+;TASK 07:
+
+;1 X * Y
+
+
+
+MOV AL,tX
+MOV BL,tY
+MUL BL  ; Result in AX
+
+
+;2 X / Y
+
+MOV BL,tX
+MOV AL,tY
+DIV BL
+
+;3 X * Y / Z
+
+MOV BL,tX
+MOV AL,tY
+MUL BL ; result in AX
+
+MOV BX,Z
+DIV BX 
+
+
+
+;TASK 08: 
+
+;1 236DF*AF Causes error because 236DF is over 16 bit
+
+;MOV AX,236DFH
+;MOV BX,0AFH
+;MUL BX
+
+
+;2 8A32F4D5 / C9A5 Same Error
+
+;MOV AX, 0F4D5H
+;MOV DX, 8A32H
+
+
+;3 CA92 * BAF9
+
+MOV AX, 0CA92H 
+MOV BX, 0BAF9H
+DIV AX
+
+;4 C2A2 * ABCD / BED
+
+MOV AX, 0ABCDH
+MOV BX, 0BEDH
+DIV BX  
+
+MOV BX, AX
+MOV AX, 0C2A2H 
+MUL BX
+
+
+; TASK 09:Write two examples for each combination of registers possible for the 'mov' instruction.
+
+MOV AX, DS ; DS= Segment
+MOV DS, AX
+MOV AL, BL
+MOV BX, AX
+; Constants, Memory Location are Not registers
+; So, I am ignoring them.
+
+
+
+; TASK 10:Write two examples for each combination of registers possible for the 'add' and 'sub'
+;instructions.
+
+ADD AX, BX
+SUB BL, AL
+; Constants, Memory Location are Not registers
+; So, I am ignoring them.
+
+
+
+
+;TASK 11:Perform the following arithmetic operation:
+; (1 + 2) * (3 – 1) / 5 + 3 + 2 – (1 * 2)
+
+
+; (Left Portion) ADD (1+2)
+
+MOV AL, 1
+ADD AL, 2  
+
+; SUB (3-1)
+
+MOV AH, 3
+SUB AH, 1
+
+; MUL (1+2)*(3-1)
+
+MOV BL, AH
+MUL BL 
+
+; DIVIDE By 5
+
+MOV BX, 5
+DIV BX   
+
+; Storing the result in CX
+
+MOV CX, AX
+
+; (Right Portion) MUL (1*2)
+
+MOV AL, 1
+MOV BL, 2
+MUL BL
+
+; Storing the result in BX
+
+MOV BX, AX 
+
+; Clearning AX
+
+SUB AX, AX
+
+; ADD (3+2)
+
+ADD AX, 3
+ADD AX, 2
+
+; SUB (3+2) - (1*2)
+
+SUB AX, BX
+
+; Adding All
+
+ADD AX, CX
+
+
+;exit to DOS 
+               
+MOV AX,4C00H
+INT 21H 
+
+MAIN ENDP
+    END MAIN 

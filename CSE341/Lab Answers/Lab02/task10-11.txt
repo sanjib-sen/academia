@@ -1,0 +1,40 @@
+                                                     .MODEL SMALL
+ .STACK 100H
+
+.DATA 
+prompt DB "Please insert a character.$"
+.CODE 
+MAIN PROC 
+
+;iniitialize DS
+
+MOV AX,@DATA 
+MOV DS,AX      
+
+;Code here
+
+; Suppose two 8-bit Signed Negative Binary Number is: 1111 1111  and  1000 0001
+; As both of them are started with 1, they are negative numbers.
+; Lets substract the smaller number from the larger number.
+
+MOV AX, 10000001B
+MOV BX, 11111111B
+ADD AX, BX
+
+; So we can see that the result is 0100 1100 which is a Positive
+; number as it starts with 0. So, sign overflow occured.
+
+; If we look at the flags we can see that,
+
+; Auxiliary Flag = 1 and Carry Flag = 0
+; So there is a carry into the MSB but no carry out of the MSB. 
+
+
+
+;exit to DOS 
+               
+MOV AX,4C00H
+INT 21H 
+
+MAIN ENDP
+    END MAIN 

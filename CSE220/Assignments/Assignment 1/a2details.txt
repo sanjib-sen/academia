@@ -1,0 +1,16 @@
+The recursive method is useful for adding a parallel series of numbers. from 1 to upto that.
+It gets a number as a parameter and return the result of the sum of 1 to that number.
+For example, if we give it 5, it will return 15, because (1+2+3+4+5) = 15.
+
+How the method works:
+1. The method gets a number
+2. The method saves the number for addition and calls itself by sending the previous number (number - 1) as a parameter.
+3. In the second time the 2nd-time method get number-1 as a parameter and calls itself by sending the previous number (number - 2) as a parameter.
+4. This happens repeatedly until the number reaches 1.
+5. After the number reaches 1, the method returns a 1 to the previously called method
+6. The previously called method (Suppose, it is last method - 1 /LM-1) returns the sum of its saved value (Suppose, it is SV1) +1 to the previous method(LM-2)
+7. The previous method (LM-2) returns the sum of its saved value (SV2) and SV1 to its previous method (LM-3)
+8. This happens repeatedly until it reaches to the method which was called at the very first.
+9. Finally, the method returns the sum of the Saved value and the sum of the saved values of previously called methods.
+10. Thus, we get the result of the addition.
+11. As an exception, the method returns 0 if we send 0 as a parameter.

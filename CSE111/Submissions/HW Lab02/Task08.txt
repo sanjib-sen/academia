@@ -1,0 +1,17 @@
+import java.util.*;
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sks=new Scanner(System.in);
+        int accha []={0,0,0,0,0,0,0,0,0,0};
+        for (int i=0;i<10;i++){
+            int num=sks.nextInt();
+            accha[num]++;
+        }
+        for (int i=0;i<10;i++){
+            if (accha[i]>=2 && accha[i]<5) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+}

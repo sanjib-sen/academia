@@ -1,0 +1,18 @@
+import java.util.*;
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sks=new Scanner(System.in);
+        int accha []={0,0,0,0,0,0,0,0,0,0};
+        int c[]=new int[2];
+        for(int bo=0;bo<2;){
+            int num=sks.nextInt();
+            accha[num]++;
+                if (accha[num]>=2 && accha[num]<5){
+                    c[bo]=num;
+                    bo++;
+                }
+        }
+        System.out.println(c[0]+" "+c[1]);
+    }
+}
