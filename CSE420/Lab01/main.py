@@ -58,7 +58,6 @@ for string in strings:
 
 innumbers = file.split()
 
-# print(keywords.reverse())
 print("Keywords:",", ".join(inkeywords))
 print("Identifiers:",", ".join(instrings))
 print("Math Operators:",", ".join(inmath))
