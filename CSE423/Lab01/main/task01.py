@@ -3,12 +3,17 @@ from OpenGL.GLUT import *
 from OpenGL.GLU import *
 from random import randint
 
-def drawpoints():
-    glPointSize(5)
+
+def drawpoint(x, y):
+    glPointSize(5.0)
     glBegin(GL_POINTS)
-    for _ in range(50):
-        glVertex2f(randint(1,500),randint(1,500))
+    glVertex2f(x, y)
     glEnd()
+
+def drawpoints():
+    for _ in range(50):
+        drawpoint(randint(10,490),randint(10,490))
+    glFlush()
 
 def iterate():
     glViewport(0, 0, 500, 500)
@@ -33,7 +38,7 @@ glutInit()
 glutInitDisplayMode(GLUT_RGBA)
 glutInitWindowSize(500, 500)
 glutInitWindowPosition(0, 0)
-wind = glutCreateWindow(b"OpenGL Coding Practice")
+wind = glutCreateWindow(b"Lab01 Task01: 50 Random points")
 glutDisplayFunc(showScreen)
 glutIdleFunc(showScreen)
 glutMainLoop()
