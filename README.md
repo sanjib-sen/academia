@@ -6,7 +6,7 @@
 | --------- | ------- | ------ | ------------ | ---------------------------------------------- | ---- |
 | 15th July |         | CSE250 | Pop Quiz     | Week 4                                         |  ✅  |
 | 15th July |         | CSE423 | Lab 1        |                                                |  ✅  |
-| 16th July | 6:00pm  | CSE420 | Quiz 1       | Week 2 and 3                                   |      |
+| 16th July | 6:00pm  | CSE420 | Quiz 1       | Week 2 and 3                                   |  ✅  |
 | 17th July | 4:30pm  | CSE471 | Quiz 2       | Lecture 4, 5                                   |      |
 | 17th July |         | CSE420 | Assignment 1 |                                                |      |
 | 17th July |         | CSE423 | Pop Quiz     |                                                |      |
