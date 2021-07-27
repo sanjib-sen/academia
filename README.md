@@ -14,6 +14,7 @@
 | 19th July | 11:55pm | CSE340 | Assignment 2 |                                                               | ✅   |
 | 26th July |         | CSE471 | Assignment 2 |                                                               | ✅   |
 | 26th July |         | CSE250 | Pop Quiz     | Week 5                                                        | ✅   |
+| 27th July |         | CSE420 | Lab 2        |                                                               |      |
 | 27th July |         | CSE250 | Lab 3        |                                                               |      |
 | 27th July |         | CSE471 | Lab 3        | Use Case Diagram Draft                                        |      |
 | 28th July | 5:00pm  | CSE340 | Quiz 2       | Week 4, 5                                                     |      |
