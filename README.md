@@ -27,7 +27,7 @@
 | 5th Aug   | 2:00pm  | CSE420 | Mid Term     | DDA, Midpoint line, 8-way symmetry, Midpoint Circle, Clipping | ✅   |
 | 9th Aug   | 11:30pm | CSE250 | Mid Viva     | [Question Bank](https://docs.google.com/document/d/1ry3OxuX1WJgewKeZ_N0HluJeF_0pl_xvPnjri--yDms/edit?usp=sharing) |      |
 | 9th Aug   |         | CSE250 | Pop Quiz     | Week 6                                                        |      |
-| 10th Aug  |         | CSE420 | Lab 3        | Check Google Classroom                                        |      |
+| 10th Aug  |         | CSE420 | Lab 3        | Check Google Classroom                                        | ✅   |
 | 10th Aug  |         | CSE471 | Lab 3        | Use Case Diagram and Activity Diagram                         |      |
 | 12th Aug  |         | CSE250 | Pop Quiz     | Week 7                                                        |      |
 | 12th Aug  |         | CSE250 | Lab 4        | Verification of Superposition Theorem                         |      |
