@@ -1,4 +1,4 @@
-module shift_right(load, d, q, clk)
+module shift_right(load, d, q, clk);
 	input clk, load;
 	input [3:0] d;
 	
