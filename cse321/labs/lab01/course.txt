@@ -1,0 +1,4 @@
+CSE321 Operating Systems
+CSE330 Numerical Inputs
+CSE437 Neural Networks
+CSE460 EEE

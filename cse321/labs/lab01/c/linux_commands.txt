@@ -1,0 +1,42 @@
+a)
+touch 19301101_1.txt
+touch 19301101_2.txt
+touch 19301101_3.txt
+touch 19301101_4.txt
+mkdir SanjibKumarSen1
+mkdir SanjibKumarSen2
+mv 19301101_1.txt 19301101_2.txt 19301101_3.txt SanjibKumarSen1
+cp 19301101_1.txt 19301101_2.txt ../SanjibKumarSen2
+mkdir SanjibKumarSen3
+cp -R SanjibKumarSen1 SanjibKumarSen3
+cd SanjibKumarSen3
+ls -l
+chmod go=rx *
+cd ..
+echo $(ls -al)
+mv SanjibKumarSen3 /
+rm -rf *
+
+
+
+
+
+b)  
+cat > course.txt
+CSE 321 Operating Systems
+CSE 330 Numerical Inputs
+CSE 437 Neural Networks
+CSE 460 EEE
+< Pressed “Ctrl+D” for EOF >
+grep ‘CSE’ | cat course.txt
+
+
+
+
+c)
+ls -a /
+
+
+
+
+d) sed -n -e 5,17p text.txt
